@@ -1,0 +1,1296 @@
+/* =========================================
+   1. NAVBAR - شريط التنقل
+   هنا بنرتب حركة الزوار في الموقع 😎
+========================================= */
+
+.navbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  font-size: 21px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.logo-icon {
+  font-size: 28px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.language-btn {
+  background: var(--primary-light);
+  border: none;
+  border-radius: 8px;
+  padding: 9px 13px;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* زر السلة - عربة خضراء وشارة حمراء للعدد 🛒 */
+
+.cart-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 21px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.cart-btn:hover {
+  transform: translateY(-2px);
+  background: var(--accent);
+}
+
+.cart-btn span {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d94b4b;
+  color: white;
+  border: 2px solid var(--surface);
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 25px;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+
+/* =========================================
+   2. HERO - واجهة الموقع الرئيسية
+   أول انطباع للعميل، لازم يكون جميل ✨
+========================================= */
+
+.hero {
+  max-width: 1200px;
+  margin: auto;
+  padding: 75px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.hero-label {
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hero h1 {
+  color: var(--primary);
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.5;
+  font-weight: 800;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.9;
+  max-width: 500px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  padding: 13px 25px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #183727;
+}
+
+.btn-outline {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary-light);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+
+/* =========================================
+   3. PLACEHOLDER - الأقسام المؤقتة
+   لحدي ما ندي كل قسم حقه في التصميم 😂
+========================================= */
+
+.placeholder-section {
+  min-height: 180px;
+  padding: 50px 24px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  color: var(--primary);
+}
+
+
+/* =========================================
+   4. PRODUCTS - قسم المنتجات
+   هنا الزبون يبدأ رحلة التسوق 🛍️
+========================================= */
+
+.products-section {
+  padding: 70px 8%;
+  text-align: center;
+}
+
+.products-section h2 {
+  font-size: 2rem;
+  margin-bottom: 35px;
+  color: var(--primary);
+}
+
+
+/* Controls the product grid layout across different screen sizes */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Adjusts the product grid for tablets */
+@media (max-width: 992px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Adjusts the product grid for mobile screens */
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .product-image {
+    height: 170px;
+  }
+}
+
+
+
+/* =========================================
+   5. PRODUCT CARD - بطاقة المنتج
+   كل منتج عنده شخصية مستقلة 😁
+========================================= */
+
+/* Product Card */
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Product Image */
+.product-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+
+/* Product Information */
+.product-info {
+  padding: 18px;
+}
+
+.product-info h3 {
+  font-size: 18px;
+  margin: 0;
+  min-height: 48px;
+}
+
+/* Product Price */
+.product-price {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 18px;
+  margin: 12px 0;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.add-to-cart:hover {
+  background: #183727;
+}
+
+.add-to-cart:active {
+  transform: scale(0.98);
+}
+
+/* =========================================
+   6. CART - سلة المشتريات
+   المنتجات وصلت، خلينا نحسب الحساب 💰
+========================================= */
+
+.cart-section {
+  padding: 75px 8%;
+  background: var(--background);
+}
+
+.cart-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.cart-heading {
+  margin-bottom: 35px;
+}
+
+.cart-eyebrow {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.cart-heading h2 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.cart-heading p {
+  color: var(--muted);
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.cart-products {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+/* =========================================
+   7. CART PRODUCT - المنتجات داخل السلة
+   المنتج هنا ما بقدر يهرب من الحساب 😂
+========================================= */
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.cart-product-icon {
+  width: 85px;
+  height: 85px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: var(--background);
+  border-radius: 12px;
+  font-size: 2.5rem;
+}
+
+.cart-product-details {
+  flex: 1;
+}
+
+.cart-product-details h3 {
+  color: var(--primary);
+  margin-bottom: 7px;
+}
+
+.cart-unit-price {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+
+/* =========================================
+   8. QUANTITY - التحكم في الكمية
+   زيد واحدة، نقص واحدة، براحتك 😎
+========================================= */
+
+.cart-quantity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.cart-quantity button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.cart-product-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.cart-product-end strong {
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.remove-product {
+  background: none;
+  border: none;
+  color: #b94b4b;
+  cursor: pointer;
+}
+
+
+/* =========================================
+   9. CART SUMMARY - ملخص الطلب
+   الحساب النهائي قبل الدفع 🧮
+========================================= */
+
+.cart-summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 25px;
+}
+
+.cart-summary h3 {
+  color: var(--primary);
+  margin-bottom: 25px;
+}
+
+.summary-row,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.summary-row {
+  color: var(--muted);
+}
+
+.summary-total {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.checkout-link {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  margin-top: 25px;
+  background: var(--primary);
+  color: white;
+  border-radius: 9px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.checkout-link:hover {
+  opacity: 0.85;
+}
+
+
+/* =========================================
+   10. EMPTY CART - السلة الفارغة
+   حتى السلة الفاضية عندها كرامة 😂
+========================================= */
+
+.empty-cart {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 65px 20px;
+  text-align: center;
+}
+
+.empty-cart-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.empty-cart h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.empty-cart p {
+  color: var(--muted);
+}
+
+
+/* =========================================
+   11. CHECKOUT - إتمام الطلب
+   آخر محطة قبل ما الطلب يمشي واتساب 📱
+========================================= */
+
+.checkout-section {
+  padding: 60px 8%;
+  background: var(--background);
+}
+
+.checkout-section form {
+  max-width: 550px;
+  margin: 25px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkout-section input,
+.checkout-section textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.checkout-section textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.checkout-section button {
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkout-section button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   12. RESPONSIVE - الشاشات المتوسطة
+   الكمبيوتر والتابلت، كل زول ومقاسه 💻
+========================================= */
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .hero {
+    gap: 25px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================
+   13. MOBILE - تصميم الهواتف
+   الموقع لازم يكون صاحي في الموبايل كمان 📱
+========================================= */
+
+@media (max-width: 700px) {
+
+  .navbar-container {
+    padding: 14px 18px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    padding: 20px;
+    flex-direction: column;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+  }
+
+  .hero-image img {
+    height: 260px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .menu-btn {
+    display: block;
+    flex-shrink: 0;
+    padding: 5px;
+    font-size: 25px;
+    visibility: visible;
+  }
+
+}
+
+
+/* =========================================
+   14. SMALL SCREENS - الهواتف الصغيرة
+   نرتب التفاصيل عشان ما يحصل زحام 😁
+========================================= */
+
+@media (max-width: 500px) {
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-section {
+    padding: 45px 5%;
+  }
+
+  .cart-product {
+    gap: 12px;
+    padding: 14px;
+    flex-wrap: wrap;
+  }
+
+  .cart-product-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 2rem;
+  }
+
+  .cart-product-end {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}
+
+
+/* خدمات الطباعة — الورق علينا والتصميم علينا 😄 */
+.printing-section {
+  padding: 80px 20px;
+  background: var(--background);
+}
+
+.printing-container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+.printing-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.printing-heading span {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.printing-heading h2 {
+  color: var(--primary);
+  font-size: 30px;
+  margin: 12px 0;
+}
+
+.printing-heading p {
+  color: var(--muted);
+}
+
+.printing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.printing-card {
+  background: var(--surface);
+  padding: 28px 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.printing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+.printing-icon {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.printing-card h3 {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.printing-card p {
+  color: var(--muted);
+  line-height: 1.7;
+  min-height: 55px;
+}
+
+.printing-card button {
+  margin-top: 15px;
+  padding: 11px 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.printing-card button:hover {
+  background: var(--accent);
+}
+
+/* الشاشات المتوسطة — ما نخلي الكروت تتزاحم 😂 */
+@media (max-width: 900px) {
+  .printing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* الموبايل — كل خدمة تاخد راحتها */
+@media (max-width: 500px) {
+  .printing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .printing-heading h2 {
+    font-size: 24px;
+  }
+}
+
+
+/* طلب الطباعة — الورق جاهز، باقي الملف بس 😄 */
+.print-order-section {
+  padding: 75px 20px;
+  background: var(--surface);
+}
+
+.print-order-container {
+  max-width: 650px;
+  margin: auto;
+}
+
+.print-order-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.print-order-heading span {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.print-order-heading h2 {
+  color: var(--primary);
+  margin: 12px 0;
+  font-size: 28px;
+}
+
+.print-order-heading p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.print-order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 30px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.print-order-form label {
+  color: var(--text);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.print-order-form input,
+.print-order-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.selected-file {
+  color: var(--primary);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.file-error {
+  color: #d94b4b;
+  font-size: 14px;
+}
+
+.print-order-form button {
+  margin-top: 15px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.print-order-form button:hover {
+  background: var(--accent);
+}
+
+/* الموبايل — نخلي النموذج مريح للزول */
+@media (max-width: 500px) {
+  .print-order-form {
+    padding: 20px;
+  }
+
+  .print-order-heading h2 {
+    font-size: 23px;
+  }
+}
+
+
+/* الملاحظات — مساحة للزبون يقول الدايرو 😄 */
+.print-order-form textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+}
+
+
+/* معاينة الطلب — نراجع قبل ما نرسل 😎 */
+.order-preview {
+  margin-top: 30px;
+  padding: 28px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.order-preview h2 {
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.preview-details p {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.preview-actions button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 9px;
+  background: var(--primary);
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.preview-actions button:last-child {
+  background: var(--muted);
+}
+
+/* الموبايل — الأزرار ما تتعارك */
+@media (max-width: 500px) {
+  .preview-actions {
+    flex-direction: column;
+  }
+
+  .preview-actions button {
+    width: 100%;
+  }
+}
+
+
+/* البحث — خلّي الزبون يلقى طلبه بسرعة 😄 */
+.products-search {
+  max-width: 500px;
+  margin: 25px auto;
+}
+
+.products-search input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.products-search input:focus {
+  border-color: var(--primary);
+}
+
+/* التصنيفات — كل منتج في مكانه */
+.category-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.category-filters button {
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-filters button:hover,
+.category-filters button.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* لا توجد نتائج — حتى البحث مرات بتعب 😅 */
+.no-products {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.no-products span {
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+/* البحث والتصنيفات في الشاشات الصغيرة */
+@media (max-width: 600px) {
+  .category-filters {
+    gap: 8px;
+  }
+
+  .category-filters button {
+    padding: 9px 14px;
+    font-size: 0.85rem;
+  }
+
+  .products-search {
+    margin: 20px 0;
+  }
+}
+
+/* صور المنتجات — خلي المنتجات تظهر بأحسن صورة 😄 */
+.product-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .cart-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    min-width: 40px;
+  }
+
+  .menu-btn {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .menu-btn {
+    display: block !important;
+    flex-shrink: 0;
+    visibility: visible;
+  }
+
+  .navbar-container {
+    padding: 10px 8px;
+    gap: 5px;
+  }
+
+  .navbar-actions {
+    gap: 5px;
+  }
+}
+
+
+.about-section {
+  padding: 70px 20px;
+  background: var(--surface);
+  text-align: center;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content h2 {
+  color: var(--primary);
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+/* Styles the main contact section and controls its spacing, background, and text alignment */
+.contact-section {
+  padding: 60px 20px;
+  background: var(--surface);
+  text-align: center;
+}
+
+/* Limits the content width and centers it horizontally */
+.contact-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Styles the contact section heading */
+.contact-content h2 {
+  color: var(--primary);
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+/* Controls spacing and line height for contact information paragraphs */
+.contact-content p {
+  margin: 15px 0;
+  line-height: 1.8;
+}
+
+/* Styles links inside the contact section */
+.contact-content a {
+  color: var(--primary);
+  text-decoration: none;
+  margin-inline-start: 8px;
+}
+
+/* Adds an underline when the user hovers over a contact link */
+.contact-content a:hover {
+  text-decoration: underline;
+}
+
+
+/* Main footer layout and background */
+.footer {
+  background: var(--primary);
+  color: white;
+  padding: 50px 20px 20px;
+  border-radius: 15px 15px 0 0;
+}
+
+/* Arranges the footer sections side by side */
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Controls the brand section width */
+.footer-brand {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* Styles the library name */
+.footer-brand h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Styles the library description */
+.footer-brand p {
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* Arranges quick links vertically */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 180px;
+}
+
+/* Styles the quick links heading */
+.footer-links h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* Styles individual footer links */
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Adds a hover effect to footer links */
+.footer-links a:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* Separates the copyright section from the footer content */
+.footer-bottom {
+  max-width: 1100px;
+  margin: 35px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+/* Styles the copyright text */
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* Adjusts the footer layout for smaller screens */
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
