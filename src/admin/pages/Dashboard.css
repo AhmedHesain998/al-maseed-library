@@ -1,0 +1,404 @@
+/* =========================================
+   Dashboard Base
+========================================= */
+
+.dashboard {
+    width: 100%;
+    min-width: 0;
+}
+
+/* =========================================
+   Dashboard Heading
+========================================= */
+
+.dashboard-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.dashboard-heading h1 {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 700;
+    color: #172b4d;
+}
+
+.dashboard-heading p,
+.section-heading p {
+    margin: 7px 0 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   Live Data Indicator
+========================================= */
+
+.dashboard-live {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.dashboard-live span {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #22c55e;
+}
+
+/* =========================================
+   Dashboard Statistics
+========================================= */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+    padding: 22px 18px;
+    background: #ffffff;
+    border: 1px solid #e8edf5;
+    border-radius: 13px;
+    box-shadow: 0 3px 12px rgba(23, 43, 77, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(23, 43, 77, 0.08);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.stat-icon.blue {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.stat-icon.orange {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+.stat-icon.green {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.stat-icon.purple {
+    background: #f3e8ff;
+    color: #9333ea;
+}
+
+.stat-details {
+    min-width: 0;
+}
+
+.stat-details p {
+    margin: 0 0 7px;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.stat-details h2 {
+    margin: 0;
+    color: #172b4d;
+    font-size: 25px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   Recent Orders Section
+========================================= */
+
+.recent-orders {
+    min-width: 0;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e8edf5;
+    border-radius: 13px;
+    box-shadow: 0 3px 12px rgba(23, 43, 77, 0.04);
+}
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    color: #172b4d;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* =========================================
+   Recent Orders Table
+========================================= */
+
+.orders-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.orders-table th {
+    padding: 14px 16px;
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.orders-table td {
+    padding: 17px 16px;
+    border-bottom: 1px solid #edf1f6;
+    color: #334155;
+    font-size: 13px;
+}
+
+.orders-table tbody tr {
+    transition: background 0.15s ease;
+}
+
+.orders-table tbody tr:hover {
+    background: #fbfdff;
+}
+
+.orders-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.customer-name {
+    color: #172b4d !important;
+    font-weight: 600;
+}
+
+.order-date {
+    color: #64748b !important;
+}
+
+/* =========================================
+   Order Status Badges
+========================================= */
+
+.order-status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.order-status.pending {
+    background: #ffedd5;
+    color: #c2410c;
+}
+
+.order-status.confirmed {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.order-status.processing {
+    background: #f3e8ff;
+    color: #7e22ce;
+}
+
+.order-status.completed {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.order-status.cancelled {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* =========================================
+   Empty Orders State
+========================================= */
+
+.empty-orders {
+    padding: 45px 15px;
+    text-align: center;
+    background: #f8fafc;
+    border-radius: 10px;
+}
+
+.empty-orders h3 {
+    margin: 0 0 8px;
+    color: #172b4d;
+    font-size: 16px;
+}
+
+.empty-orders p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   Loading State
+========================================= */
+
+.dashboard-message {
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #64748b;
+}
+
+.dashboard-spinner {
+    width: 34px;
+    height: 34px;
+    border: 3px solid #dbeafe;
+    border-top-color: #2563eb;
+    border-radius: 50%;
+    animation: dashboard-spin 0.8s linear infinite;
+}
+
+@keyframes dashboard-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================
+   Error State
+========================================= */
+
+.dashboard-error {
+    padding: 24px;
+    background: #fee2e2;
+    border-radius: 10px;
+    color: #991b1b;
+}
+
+.dashboard-error button {
+    padding: 9px 16px;
+    border: 0;
+    border-radius: 7px;
+    background: #172b4d;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.dashboard-error button:hover {
+    background: #2563eb;
+}
+
+/* =========================================
+   Arabic Direction
+========================================= */
+
+.dashboard[dir="rtl"] .orders-table {
+    text-align: right;
+}
+
+/* =========================================
+   Tablet Responsive Design
+========================================= */
+
+@media (max-width: 1100px) {
+    .dashboard-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================================
+   Mobile Responsive Design
+========================================= */
+
+@media (max-width: 600px) {
+    .dashboard-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-heading h1 {
+        font-size: 21px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    .recent-orders {
+        padding: 16px;
+    }
+
+    .orders-table th,
+    .orders-table td {
+        padding: 13px 12px;
+    }
+}
+
+/* =========================================
+   Reduced Motion Accessibility
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .stat-card,
+    .orders-table tbody tr,
+    .dashboard-error button {
+        transition: none;
+    }
+
+    .stat-card:hover {
+        transform: none;
+    }
+
+    .dashboard-spinner {
+        animation-duration: 2s;
+    }
+}

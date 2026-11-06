@@ -1,13 +1,42 @@
-
-import { useState } from "react";
-import products from "../data/products";
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabase";
 import ProductCard from "./ProductCard";
 
 function Products({ language, addToCart }) {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const isArabic = language === "ar";
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .eq("is_active", true)
+        .order("created_at", { ascending: true });
+
+      if (error) {
+        console.error("Error fetching products:", error);
+        setError(isArabic ? "تعذر تحميل المنتجات." : "Failed to load products.");
+      } else {
+        const formattedProducts = data.map((product) => ({
+          ...product,
+          nameAr: product.name_ar,
+        }));
+
+        setProducts(formattedProducts);
+      }
+
+      setLoading(false);
+    }
+
+    fetchProducts();
+  }, [isArabic]);
 
   const categories = [
     { id: "All", ar: "الكل", en: "All" },
@@ -16,11 +45,10 @@ function Products({ language, addToCart }) {
     { id: "Uniforms", ar: "الزي المدرسي", en: "Uniforms" },
   ];
 
-  // البحث والتصفية — نخلي المنتج يلقى طريقه للزبون 😄
   const filteredProducts = products.filter((product) => {
-   const matchesSearch =
-    (product.name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (product.nameAr || "").includes(searchTerm);
+    const matchesSearch =
+      (product.name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (product.nameAr || "").includes(searchTerm);
 
     const matchesCategory =
       selectedCategory === "All" ||
@@ -32,9 +60,7 @@ function Products({ language, addToCart }) {
   return (
     <section className="products-section" id="products">
       <div className="products-heading">
-        <h2>
-          {isArabic ? "منتجاتنا" : "Our Products"}
-        </h2>
+        <h2>{isArabic ? "منتجاتنا" : "Our Products"}</h2>
 
         <p>
           {isArabic
@@ -55,15 +81,12 @@ function Products({ language, addToCart }) {
         />
       </div>
 
-      {/* تصفية المنتجات حسب التصنيف */}
       <div className="category-filters">
         {categories.map((category) => (
           <button
             key={category.id}
             type="button"
-            className={
-              selectedCategory === category.id ? "active" : ""
-            }
+            className={selectedCategory === category.id ? "active" : ""}
             onClick={() => setSelectedCategory(category.id)}
           >
             {isArabic ? category.ar : category.en}
@@ -71,8 +94,11 @@ function Products({ language, addToCart }) {
         ))}
       </div>
 
-      {/* عرض النتائج */}
-      {filteredProducts.length > 0 ? (
+      {loading ? (
+        <p>{isArabic ? "جاري تحميل المنتجات..." : "Loading products..."}</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : filteredProducts.length > 0 ? (
         <div className="products-grid">
           {filteredProducts.map((product) => (
             <ProductCard

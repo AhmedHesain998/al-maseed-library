@@ -1,0 +1,344 @@
+.admin-login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background:
+        radial-gradient(circle at top left, #e7eee8 0, transparent 38%),
+        #faf9f5;
+    font-family: 'Inter', 'Cairo', sans-serif;
+}
+
+.admin-login-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 42px 36px;
+    background: #ffffff;
+    border: 1px solid #e8e8e0;
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(36, 76, 58, 0.09);
+}
+
+.admin-login-brand {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.admin-login-logo {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: #244c3a;
+    color: #d6a65d;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.admin-login-brand h1 {
+    color: #244c3a;
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+.admin-login-brand p {
+    color: #777f78;
+    font-size: 13px;
+}
+
+.admin-login-card h2 {
+    color: #26372d;
+    font-size: 21px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.admin-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.admin-login-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.admin-login-field label {
+    color: #26372d;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.admin-login-field input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #e8e8e0;
+    border-radius: 9px;
+    background: #faf9f5;
+    color: #26372d;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.admin-login-field input:focus {
+    border-color: #244c3a;
+    box-shadow: 0 0 0 3px rgba(36, 76, 58, 0.10);
+}
+
+.admin-login-field input::placeholder {
+    color: #a0a69f;
+}
+
+.admin-login-error {
+    padding: 12px 14px;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    background: #fef2f2;
+    color: #b91c1c;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.admin-login-button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 13px;
+    border: none;
+    border-radius: 9px;
+    background: #244c3a;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.admin-login-button:hover:not(:disabled) {
+    background: #193b2b;
+    transform: translateY(-1px);
+}
+
+.admin-login-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.admin-login-footer {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid #e8e8e0;
+    text-align: center;
+    color: #777f78;
+    font-size: 12px;
+}
+
+@media (max-width: 480px) {
+    .admin-login {
+        padding: 16px;
+    }
+
+    .admin-login-card {
+        padding: 32px 22px;
+    }
+}
+
+.admin-login-language {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.admin-login-language button {
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-login-language button:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.admin-login-field label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.admin-login[dir="rtl"] .admin-login-field input {
+    text-align: right;
+}
+
+.admin-login[dir="ltr"] .admin-login-field input {
+    text-align: left;
+}
+
+.admin-login-card {
+    position: relative;
+}
+
+.admin-login-language {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin: 0;
+    z-index: 2;
+}
+
+.admin-login-language button {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.admin-login {
+    min-height: 100svh;
+    height: 100svh;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.admin-login-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 28px 30px;
+    margin: auto;
+}
+
+.admin-login-brand {
+    margin-bottom: 18px;
+}
+
+.admin-login-logo {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 10px;
+}
+
+.admin-login-card h1 {
+    font-size: 22px;
+}
+
+.admin-login-card h2 {
+    font-size: 19px;
+    margin-bottom: 16px;
+}
+
+.admin-login-form {
+    gap: 12px;
+}
+
+.admin-login-field input {
+    padding: 11px 12px;
+}
+
+.admin-login-button {
+    padding: 12px;
+    margin-top: 4px;
+}
+
+.admin-login-footer {
+    margin-top: 16px;
+    font-size: 12px;
+}
+
+@media (max-height: 650px) {
+    .admin-login-card {
+        padding: 18px 24px;
+    }
+
+    .admin-login-brand {
+        margin-bottom: 10px;
+    }
+
+    .admin-login-logo {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 6px;
+    }
+
+    .admin-login-footer {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-login {
+        min-height: 100svh;
+        height: auto;
+        padding: 10px;
+    }
+
+    .admin-login-card {
+        padding: 20px 18px 16px;
+    }
+
+    .admin-login-language {
+        top: 12px;
+        right: 12px;
+    }
+
+    .admin-login-brand {
+        margin-bottom: 12px;
+    }
+
+    .admin-login-logo {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 6px;
+    }
+
+    .admin-login-card h1 {
+        font-size: 19px;
+    }
+
+    .admin-login-card h2 {
+        margin-bottom: 12px;
+    }
+
+    .admin-login-form {
+        gap: 10px;
+    }
+
+    .admin-login-field input {
+        padding: 10px;
+    }
+
+    .admin-login-button {
+        padding: 10px;
+    }
+
+    .admin-login-footer {
+        margin-top: 12px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-login {
+        align-items: flex-start;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .admin-login-card {
+        margin-top: 0;
+        padding-bottom: 10px;
+    }
+
+    .admin-login-footer {
+        margin-top: 8px;
+    }
+}

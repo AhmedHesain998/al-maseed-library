@@ -1,7 +1,7 @@
 
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
-import { VitePWA } from 'vite-plugin-pwa'
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   plugins: [
@@ -10,10 +10,16 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
 
+      // Disable Service Worker during development
+      devOptions: {
+        enabled: false,
+      },
+
       manifest: {
         name: 'مكتبة المسيد | Al-Maseed Library',
         short_name: 'مكتبة المسيد',
-        description: 'وجهتك للمستلزمات المدرسية والقرطاسية وخدمات الطباعة.',
+        description:
+          'وجهتك للمستلزمات المدرسية والقرطاسية وخدمات الطباعة.',
         lang: 'ar',
         dir: 'rtl',
         display: 'standalone',
@@ -26,21 +32,22 @@ export default defineConfig({
           {
             src: '/pwa-192x192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: '/pwa-512x512.png',
             sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
+            type: 'image/png',
+          },
+        ],
       },
 
       workbox: {
         globPatterns: [
-          '**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp}'
-        ]
-      }
-    })
-  ]
-})
+          '**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp}',
+        ],
+        cleanupOutdatedCaches: true,
+      },
+    }),
+  ],
+});
